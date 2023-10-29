@@ -105,15 +105,15 @@ View other drafts
 
 Sure, here is a list of commands that are required for the RHSCA - 600  Deploy, configure, and maintain systems, including software installation, update, and core services:
 Command	Description
-yum	Installs, updates, and removes packages on Red Hat Enterprise Linux (RHEL) and CentOS systems.
-dnf	Installs, updates, and removes packages on Fedora systems.
-rpm	Manages RPM packages, which are the standard package format for RHEL, CentOS, and Fedora systems.
-systemctl	Controls systemd services.
-firewall-cmd	Configures the firewall.
-setenforce	Sets the SELinux enforcement mode.
-timedatectl	Configures the system clock.
-hostnamectl	Sets the system hostname.
-chronyc	Manages the chronyd time synchronization service.
+yum			[ Installs, updates, and removes packages on Red Hat Enterprise Linux (RHEL) and CentOS systems. ] 
+dnf			[ Installs, updates, and removes packages on Fedora systems. ] 
+rpm			[ Manages RPM packages, which are the standard package format for RHEL, CentOS, and Fedora systems.
+systemctl		[ Controls systemd services.
+firewall-cmd		[ Configures the firewall.
+setenforce		[ Sets the SELinux enforcement mode.
+timedatectl		[ Configures the system clock.
+hostnamectl		[ Sets the system hostname.
+chronyc			[ Manages the chronyd time synchronization service.
 ntpdate	Sets the system clock using the Network Time Protocol (NTP).
 swapon	Activates a swap partition.
 swapoff	Deactivates a swap partition.
