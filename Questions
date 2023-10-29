@@ -1,0 +1,100 @@
+
+######################################################################################################################################################
+
+ Question #1 Topic 1
+
+SIMULATION -
+Configure your Host Name, IP Address, Gateway and DNS.
+Host name: station.domain40.example.com
+/etc/sysconfig/network
+hostname=abc.com
+hostname abc.com
+
+IP Address:172.24.40.40/24 -
+
+Gateway172.24.40.1 -
+
+DNS:172.24.40.1 -
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+ Correct Answer: See explanation below.
+# cd /etc/syscofig/network-scripts/
+# ls
+# vim ifcfg-eth0 (Configure IP Address, Gateway and DNS) IPADDR=172.24.40.40
+
+GATEWAY=172.24.40.1 -
+
+DNS1=172.24.40.1 -
+# vim /etc/sysconfig/network
+(Configure Host Name)
+HOSTNAME= station.domain40.example.com
+
+OR -
+Graphical Interfaces:
+System->Preference->Network Connections (Configure IP Address, Gateway and DNS) Vim /etc/sysconfig/network
+(Configure Host Name) 
+
+######################################################################################################################################################
+Question #2 
+
+SIMULATION -
+Add 3 users: harry, natasha, tom.
+The requirements: The Additional group of the two users: harry, Natasha is the admin group. The user: tom's login shell should be non-interactive.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Correct Answer: See explanation below.
+# useradd -G admin harry
+# useradd -G admin natasha
+# useradd -s /sbin/nologin tom
+# id harry;id Natasha (Show additional group)
+# cat /etc/passwd
+(Show the login shell)
+
+OR -
+# system-config-users 
+
+######################################################################################################################################################
+
+Question #3 
+
+SIMULATION -
+Create a catalog under /home named admins. Its respective group is requested to be the admin group. The group users could read and write, while other users are not allowed to access it. The files created by users from the same group should also be the admin group.
+
+ Correct Answer: See explanation below.
+# which echo
+# crontab -e
+23 14 * * * /bin/echo hello
+# crontab -l (Verify) 
+
+######################################################################################################################################################
+
+Question #5 
+
+SIMULATION -
+Find the files owned by harry, and copy it to catalog: /opt/dir
+
+ Correct Answer: See explanation below.
+# cd /opt/
+# mkdir dir
+# find / -user harry -exec cp -rfp {} /opt/dir/ \; 
+
+The command you've provided is a Unix/Linux command that uses the find and cp commands to search for files owned by the user "harry" and then copy them to the directory "/opt/dir/". Let's break down the command step by step:
+
+    find /: This part of the command initiates the find command, which is used for searching files and directories in a specified location. In this case, it starts the search at the root directory ("/"), which means it will search the entire filesystem.
+
+    -user harry: This is an option for the find command. It specifies a search criterion, which is to find files owned by the user "harry."
+
+    -exec cp -rfp {} /opt/dir/ \;: This is where the found files are processed.
+        -exec: This option allows you to execute a command on each file found by find.
+        cp: This is the command that's executed for each found file. cp is the command used to copy files.
+        -rfp: These are options for the cp command.
+            -r: Recursively copy directories and their contents.
+            -f: Force the copy (overwrite files without asking).
+            -p: Preserve file attributes like permissions, timestamps, etc.
+        {}: This is a placeholder that gets replaced by the paths of the files found by find. For each file, the {} is replaced with the file's path.
+        /opt/dir/: This is the destination directory where the files will be copied. In this case, it's "/opt/dir/".
+        \;: The semicolon \; is used to terminate the -exec command.
+
+So, in summary, the command searches the entire filesystem for files owned by the user "harry" and then copies those files, including directories and their contents, to the "/opt/dir/" directory while preserving their attributes (such as permissions and timestamps) and overwriting existing files in the destination if necessary.
+
+
