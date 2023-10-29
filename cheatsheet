@@ -2,33 +2,19 @@
 ####################################################################################################
 100 - Understand and use essential tools for handling files, directories, command-line environments, and documentation
 
- cat | Concatenate and print files |
-| cd | Change directory |
-| cp | Copy files |
-| grep | Search for patterns in text files |
-| ls | List directory contents |
-| mkdir | Create directories |
-| mv | Move or rename files |
-| pwd | Print the current working directory |
-| rm | Remove files |
-| touch | Create or update empty files |
-| man | Display the manual page for a command |
-| info | Display the info page for a command |
+$ cat                         [concatenates and prints the contents of one or more files to the standard output]
+$ cd                          [changes the current working directory.]
+$ cp                          [copies one or more files to another location]
+$ grep                        [grep searches for patterns in text files.]
+$ ls                          [lists the contents of the current directory, or another directory if specified.]
+$ mv                          [moves one or more files from one location to another.]
+$ pwd                         [prints the full path of the current working directory to the standard output.]
+$ rm                          [removes one or more files.]
+$ touch                       [creates an empty file, or updates the timestamp of an existing file.]
+$ man                         [displays the manual page for a command. The manual page contains detailed information about the command, including its syntax, options, and examples.]
+$ info                        [Display the info page for a command]
+$ mkdir                       [creates one or more directories]
 
-Short description of what the commands do:
-
-    cat concatenates and prints the contents of one or more files to the standard output.
-    cd changes the current working directory.
-    cp copies one or more files to another location.
-    grep searches for patterns in text files.
-    ls lists the contents of the current directory, or another directory if specified.
-    mkdir creates one or more directories.
-    mv moves one or more files from one location to another.
-    pwd prints the full path of the current working directory to the standard output.
-    rm removes one or more files.
-    touch creates an empty file, or updates the timestamp of an existing file.
-    man displays the manual page for a command. The manual page contains detailed information about the command, including its syntax, options, and examples.
-    info displays the info page for a command. The info page is similar to the man page, but it is presented in a more readable format.
 
 
 ####################################################################################################
