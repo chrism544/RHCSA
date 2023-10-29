@@ -15,7 +15,16 @@ $ man                         [displays the manual page for a command. The manua
 $ info                        [Display the info page for a command]
 $ mkdir                       [creates one or more directories]
 
-
+Input Output Redirection
+	> overwrite
+	< send into command
+	>> append 
+	<< append into command or file
+	2>&1 redirect errors to stdout
+	2> redirect errors
+	stin = 0 
+	stdout =1
+	stderr =2
 
 ####################################################################################################
 200 - Create simple shell scripts
