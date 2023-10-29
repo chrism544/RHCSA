@@ -1,3 +1,5 @@
+
+####################################################################################################
 100 - Understand and use essential tools for handling files, directories, command-line environments, and documentation
 
  cat | Concatenate and print files |
@@ -29,7 +31,7 @@ Short description of what the commands do:
     info displays the info page for a command. The info page is similar to the man page, but it is presented in a more readable format.
 
 
-
+####################################################################################################
 200 - Create simple shell scripts
 
 Command	Description
@@ -96,10 +98,126 @@ Short description of what the commands do:
     virsh is a command-line tool for managing virtual machines. It can be used to create, start, stop, and suspend virtual machines, as well as manage other aspects of virtual machine configuration.
     service is a deprecated command for controlling system services. It should be avoided in favor of systemctl.
 
+####################################################################################################
 400 - Configure local storage using partitions and logical volumes
 
+The nmtui command is a text-based user interface (TUI) for the NetworkManager network management service. It allows you to manage your network connections, including creating and editing connections, viewing connection status, and troubleshooting network problems.
+
+The nmtui command is a valuable tool for RHCSA candidates, as it allows you to manage your network connections without having to learn complex command-line commands.
+
+Here are some examples of how to use the nmtui command:
+
+    To list all of your network connections:
+
+nmtui
+
+    To edit a network connection:
+
+nmtui edit <connection-name>
+
+    To create a new network connection:
+
+nmtui add
+
+    To activate a network connection:
+
+nmtui connect <connection-name>
+
+    To disable a network connection:
+
+nmtui disconnect <connection-name>
+
+I hope this helps!
+profile picture
+Could you provide a list of commands that required for the RHSCA - 600  Deploy, configure, and maintain systems, including software installation, update, and core services?
+ould you also provide a short description of what the commands do?
+View other drafts
+
+Sure, here is a list of commands that are required for the RHSCA - 600  Deploy, configure, and maintain systems, including software installation, update, and core services:
+Command	Description
+yum	Installs, updates, and removes packages on Red Hat Enterprise Linux (RHEL) and CentOS systems.
+dnf	Installs, updates, and removes packages on Fedora systems.
+rpm	Manages RPM packages, which are the standard package format for RHEL, CentOS, and Fedora systems.
+systemctl	Controls systemd services.
+firewall-cmd	Configures the firewall.
+setenforce	Sets the SELinux enforcement mode.
+timedatectl	Configures the system clock.
+hostnamectl	Sets the system hostname.
+chronyc	Manages the chronyd time synchronization service.
+ntpdate	Sets the system clock using the Network Time Protocol (NTP).
+swapon	Activates a swap partition.
+swapoff	Deactivates a swap partition.
+fdisk	Partitions disks.
+mkfs	Creates a file system on a disk or partition.
+mount	Mounts a file system.
+umount	Unmounts a file system.
+
+Here are some examples of how to use these commands:
+
+    To install the Apache web server:
+
+yum install httpd
+
+    To update all of the packages on the system:
+
+yum update
+
+    To remove the MySQL database server:
+
+yum remove mysql
+
+    To start the SSH daemon:
+
+systemctl start sshd
+
+    To stop the firewall:
+
+systemctl stop firewalld
+
+    To set the SELinux enforcement mode to permissive:
+
+setenforce 0
+
+    To set the system hostname to "myhost":
+
+hostnamectl set-hostname myhost
+
+    To start the chronyd time synchronization service:
+
+systemctl start chronyd
+
+    To set the system clock using NTP:
+
+ntpdate ntp.example.com
+
+    To activate the swap partition on the device /dev/sdb1:
+
+swapon /dev/sdb1
+
+    To deactivate the swap partition on the device /dev/sdb1:
+
+swapoff /dev/sdb1
+
+    To partition the disk /dev/sda:
+
+fdisk /dev/sda
+
+    To create a file system of type ext4 on the partition /dev/sda1:
+
+mkfs.ext4 /dev/sda1
+
+    To mount the partition /dev/sda1 to the directory /mnt:
+
+mount /dev/sda1 /mnt
+
+    To unmount the partition /dev/sda1:
+
+umount /mnt
+
+####################################################################################################
 500 - Create and configure file systems and file system attributes, such as permissions, encryption, access control lists, and network file systems
 
+####################################################################################################
 600 - Deploy, configure, and maintain systems, including software installation, update, and core services
 
     yum - install, update, and remove packages
@@ -131,7 +249,7 @@ nmtui connect <connection-name>
 
 nmtui disconnect <connection-name>
 
-
+####################################################################################################
 700 - Manage users and groups
 
     useradd - create a new user
@@ -141,15 +259,138 @@ nmtui disconnect <connection-name>
     usermod - modify a user
     passwd - change a user's password
 
+    useradd: This command is used to add a new user to the system.
+        Description: It creates a new user account, and you can specify various options like the user's home directory and shell.
+
+    passwd: Change a user's password.
+        Description: Allows users (including the superuser) to change their passwords or can be used by the superuser to change another user's password.
+
+    usermod: Modify an existing user account.
+        Description: You can use this command to change user attributes like the user's login shell, home directory, or group membership.
+
+    userdel: Delete a user account.
+        Description: Removes a user account from the system, along with their home directory and mailbox, if specified.
+
+    groupadd: Create a new group.
+        Description: This command is used to create a new group on the system.
+
+    groupmod: Modify a group's attributes.
+        Description: It allows you to change group attributes, like the group name or group ID.
+
+    groupdel: Delete a group.
+        Description: Removes a group from the system. Be cautious, as this also removes all group memberships.
+
+    gpasswd: Manage group password files.
+        Description: It is used to administer the /etc/group and /etc/gshadow files, which store group information, including passwords.
+
+    newgrp: Start a new shell with a different group ID.
+        Description: This command allows a user to temporarily switch to a different group without logging out and logging back in.
+
+    id: Display user and group information for a user.
+        Description: Shows information about a user, including their user and group IDs and group memberships.
+
+    chage: Change user password expiration settings.
+        Description: Used to set password expiration and aging properties for a user.
+
+    su: Switch user or superuser.
+        Description: Allows you to switch to another user account, including the root superuser.
+
+    sudo: Execute a command as another user, typically the superuser.
+        Description: Enables authorized users to execute commands as another user, usually the root user.
+
+####################################################################################################
 800 - Manage security, including basic firewall and SELinux configuration
 
     firewall-cmd - configure the firewall
     setenforce - set the SELinux enforcement mode
 
+####################################################################################################
 900 - Perform basic container management
 
     podman - manage containers and images
     skopeo - inspect and manipulate container images
+
+Command	Description
+yum	Installs, updates, and removes packages on Red Hat Enterprise Linux (RHEL) and CentOS systems.
+dnf	Installs, updates, and removes packages on Fedora systems.
+rpm	Manages RPM packages, which are the standard package format for RHEL, CentOS, and Fedora systems.
+systemctl	Controls systemd services.
+firewall-cmd	Configures the firewall.
+setenforce	Sets the SELinux enforcement mode.
+timedatectl	Configures the system clock.
+hostnamectl	Sets the system hostname.
+chronyc	Manages the chronyd time synchronization service.
+ntpdate	Sets the system clock using the Network Time Protocol (NTP).
+swapon	Activates a swap partition.
+swapoff	Deactivates a swap partition.
+fdisk	Partitions disks.
+mkfs	Creates a file system on a disk or partition.
+mount	Mounts a file system.
+umount	Unmounts a file system.
+
+Here are some examples of how to use these commands:
+
+    To install the Apache web server:
+
+yum install httpd
+
+    To update all of the packages on the system:
+
+yum update
+
+    To remove the MySQL database server:
+
+yum remove mysql
+
+    To start the SSH daemon:
+
+systemctl start sshd
+
+    To stop the firewall:
+
+systemctl stop firewalld
+
+    To set the SELinux enforcement mode to permissive:
+
+setenforce 0
+
+    To set the system hostname to "myhost":
+
+hostnamectl set-hostname myhost
+
+    To start the chronyd time synchronization service:
+
+systemctl start chronyd
+
+    To set the system clock using NTP:
+
+ntpdate ntp.example.com
+
+    To activate the swap partition on the device /dev/sdb1:
+
+swapon /dev/sdb1
+
+    To deactivate the swap partition on the device /dev/sdb1:
+
+swapoff /dev/sdb1
+
+    To partition the disk /dev/sda:
+
+fdisk /dev/sda
+
+    To create a file system of type ext4 on the partition /dev/sda1:
+
+mkfs.ext4 /dev/sda1
+
+    To mount the partition /dev/sda1 to the directory /mnt:
+
+mount /dev/sda1 /mnt
+
+    To unmount the partition /dev/sda1:
+
+umount /mnt
+
+These are just a few examples of the commands that are required for the RHSCA - 600  Deploy, configure, and maintain systems, including software installation, update, and core services. For a more comprehensive list of commands, please refer to the RHCSA exam objectives.
 
 Remaining:
 
