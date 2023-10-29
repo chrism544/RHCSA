@@ -1,1 +1,159 @@
+100 - Understand and use essential tools for handling files, directories, command-line environments, and documentation
+
+ cat | Concatenate and print files |
+| cd | Change directory |
+| cp | Copy files |
+| grep | Search for patterns in text files |
+| ls | List directory contents |
+| mkdir | Create directories |
+| mv | Move or rename files |
+| pwd | Print the current working directory |
+| rm | Remove files |
+| touch | Create or update empty files |
+| man | Display the manual page for a command |
+| info | Display the info page for a command |
+
+Short description of what the commands do:
+
+    cat concatenates and prints the contents of one or more files to the standard output.
+    cd changes the current working directory.
+    cp copies one or more files to another location.
+    grep searches for patterns in text files.
+    ls lists the contents of the current directory, or another directory if specified.
+    mkdir creates one or more directories.
+    mv moves one or more files from one location to another.
+    pwd prints the full path of the current working directory to the standard output.
+    rm removes one or more files.
+    touch creates an empty file, or updates the timestamp of an existing file.
+    man displays the manual page for a command. The manual page contains detailed information about the command, including its syntax, options, and examples.
+    info displays the info page for a command. The info page is similar to the man page, but it is presented in a more readable format.
+
+
+
+200 - Create simple shell scripts
+
+Command	Description
+#!/bin/bash	This is the shebang line, and it tells the system which shell interpreter to use for the script.
+echo	Prints text to the standard output.
+read	Reads input from the standard input.
+if	Executes a block of code if a condition is met.
+elif	Executes a block of code if a condition is met, but only if a previous if statement was not met.
+else	Executes a block of code if none of the previous conditions were met.
+fi	Ends an if statement.
+for	Executes a block of code for a specified number of times or until a condition is met.
+in	Used in for loops to iterate over a list of values.
+do	Starts a for loop.
+done	Ends a for loop.
+case	Executes a block of code depending on the value of a variable.
+esac	Ends a case statement.
+function	Defines a function.
+return	Returns from a function.
+exit	Exits the script.
+
+ere is an example of a simple shell script:
+Code snippet
+
+
+# This script prints the current working directory to the standard output.
+
+echo "The current working directory is: $PWD"
+
+Use code with caution. Learn more
+
+To run this script, you would first need to save it as a file with a .sh extension, such as hello.sh. Then, you could make the script executable by running the following command:
+
+chmod +x hello.sh
+
+Once the script is executable, you can run it by typing the following command:
+
+./hello.sh
+
+This would print the current working directory to the standard output.
+
+You can use these commands to create more complex shell scripts to automate tasks on your system. For example, you could write a script to back up your files, install software, or configure your system.
+
+300 - Operate running systems, including booting into different run levels, identifying processes, starting and stopping virtual machines, and controlling services
+
+| Command | Description |
+|---|---|---|
+| systemctl | Control systemd services |
+| runlevel | Display the current runlevel |
+| init | Boot into a specific runlevel |
+| ps | List running processes |
+| top | Display real-time system information, including CPU usage, memory usage, and process list |
+| kill | Terminate a process |
+| virsh | Manage virtual machines |
+| service | Control system services (deprecated) |
+
+Short description of what the commands do:
+
+ systemctl is the primary command for controlling systemd services. It can be used to start, stop, restart, and enable/disable services.
+    runlevel displays the current runlevel, which is a system state that defines which services are running.
+    init can be used to boot the system into a specific runlevel.
+    ps lists all running processes, along with their process ID (PID), user, and CPU and memory usage.
+    top displays real-time system information, including CPU usage, memory usage, and process list.
+    kill terminates a running process.
+    virsh is a command-line tool for managing virtual machines. It can be used to create, start, stop, and suspend virtual machines, as well as manage other aspects of virtual machine configuration.
+    service is a deprecated command for controlling system services. It should be avoided in favor of systemctl.
+
+400 - Configure local storage using partitions and logical volumes
+
+500 - Create and configure file systems and file system attributes, such as permissions, encryption, access control lists, and network file systems
+
+600 - Deploy, configure, and maintain systems, including software installation, update, and core services
+
+    yum - install, update, and remove packages
+    dnf - install, update, and remove packages
+    systemctl - control systemd services
+The nmtui command is a text-based user interface (TUI) for the NetworkManager network management service. It allows you to manage your network connections, including creating and editing connections, viewing connection status, and troubleshooting network problems.
+
+The nmtui command is a valuable tool for RHCSA candidates, as it allows you to manage your network connections without having to learn complex command-line commands.
+
+Here are some examples of how to use the nmtui command:
+
+    To list all of your network connections:
+
+nmtui
+
+    To edit a network connection:
+
+nmtui edit <connection-name>
+
+    To create a new network connection:
+
+nmtui add
+
+    To activate a network connection:
+
+nmtui connect <connection-name>
+
+    To disable a network connection:
+
+nmtui disconnect <connection-name>
+
+
+700 - Manage users and groups
+
+    useradd - create a new user
+    userdel - delete a user
+    groupadd - create a new group
+    groupdel - delete a group
+    usermod - modify a user
+    passwd - change a user's password
+
+800 - Manage security, including basic firewall and SELinux configuration
+
+    firewall-cmd - configure the firewall
+    setenforce - set the SELinux enforcement mode
+
+900 - Perform basic container management
+
+    podman - manage containers and images
+    skopeo - inspect and manipulate container images
+
+Remaining:
+
+
+
+
 
