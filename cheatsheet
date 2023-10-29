@@ -33,7 +33,8 @@ Use grep and regular expressions to analyze text
 ####################################################################################################
 200 - Create simple shell scripts
 
-Command	Description
+| Command |		[ Description ]
+
 #!/bin/bash		[ This is the shebang line, and it tells the system which shell interpreter to use for the script. ]
 echo			[ Prints text to the standard output. ]
 read			[ Reads input from the standard input. ]0
@@ -51,15 +52,13 @@ function		[ Defines a function. ]
 return			[ Returns from a function. ]
 exit			[ Exits the script. ]
 
-
-
 ####################################################################################################
 300 - Operate running systems, including booting into different run levels, identifying processes, starting and stopping virtual machines, and controlling services
 
 | Command |				[ Description ]
 
 | systemctl 				[primary command for controlling systemd services. It can be used to start, stop, restart, and enable/disable services.]
-| runlevel 							[displays the current runlevel, which is a system state that defines which services are running.]
+| runlevel 				[displays the current runlevel, which is a system state that defines which services are running.]
 | init					[used to boot the system into a specific runlevel.]
 | ps 					[lists all running processes, along with their process ID (PID), user, and CPU and memory usage.]
 | top 					[Display real-time system information, including CPU usage, memory usage, and process list]
@@ -71,39 +70,75 @@ exit			[ Exits the script. ]
 ####################################################################################################
 400 - Configure local storage using partitions and logical volumes
 
-The nmtui command is a text-based user interface (TUI) for the NetworkManager network management service. It allows you to manage your network connections, including creating and editing connections, viewing connection status, and troubleshooting network problems.
+Managing Filesystem
+-------- ----------
 
-The nmtui command is a valuable tool for RHCSA candidates, as it allows you to manage your network connections without having to learn complex command-line commands.
+Partition Management:
+ 	fdisk or parted: These utilities are used to create, delete, and manage disk partitions.
+        Example: fdisk /dev/sdX to create and manage partitions on a specific disk (replace "X" with the appropriate drive letter).
 
-Here are some examples of how to use the nmtui command:
+Create Physical Volumes:
+        pvcreate: Used to initialize a physical volume on a partition or disk.
+        Example: pvcreate /dev/sdX1 to create a physical volume on a specific partition.
 
-    To list all of your network connections:
+Volume Group Management:
+        vgcreate: To create a volume group.
+        vgextend and vgreduce: To extend or reduce the size of a volume group.
+        Example: vgcreate myvg /dev/sdX1 to create a volume group named "myvg" using the physical volume.
 
-nmtui
+Logical Volume Management:
+        lvcreate: To create logical volumes within a volume group.
+        lvextend and lvreduce: To resize logical volumes.
+        Example: lvcreate -L 10G -n mylv myvg to create a logical volume named "mylv" in the "myvg" volume group with a size of 10GB.
 
-    To edit a network connection:
+File System Creation:
+        mkfs: To create a file system on a logical volume (e.g., mkfs.ext4, mkfs.xfs).
+        Example: mkfs.ext4 /dev/myvg/mylv to create an Ext4 file system on the logical volume.
 
-nmtui edit <connection-name>
+Mounting and Fstab:
+        mount: To mount logical volumes to directories.
+        /etc/fstab: To configure automatic mounting at system boot.
 
-    To create a new network connection:
+Managing network
+-------- -------
 
-nmtui add
+View Network Configuration:
+        ip addr or ifconfig: To view network interface information.
+        nmcli connection show: To list NetworkManager-managed connections.
 
-    To activate a network connection:
+Configure Network Interfaces:
+        nmcli connection add: To add a new NetworkManager connection.
+        nmcli connection modify: To modify an existing NetworkManager connection.
+        ifconfig or ip addr: To configure IP addresses and network settings manually.
 
-nmtui connect <connection-name>
+Activate/Deactivate Network Interfaces:
+        nmcli connection up: To activate a NetworkManager connection.
+        nmcli connection down: To deactivate a NetworkManager connection.
+        ifconfig or ip link set: To bring network interfaces up or down.
 
-    To disable a network connection:
+Hostname and DNS Configuration:
+        hostnamectl set-hostname: To set the system's hostname.
+        Edit /etc/hostname for persistent hostname changes.
+        Edit /etc/hosts for manual DNS mapping.
+        nmcli connection modify: To set DNS information in NetworkManager connections.
 
-nmtui disconnect <connection-name>
+Network Troubleshooting:
+        ping: To test network connectivity.
+        traceroute or mtr: To trace the route to a destination.
+        netstat or ss: To display network statistics.
+        systemctl status NetworkManager: To check the status of NetworkManager.
+        journalctl -xe: To view system logs for network-related issues.
 
-I hope this helps!
-profile picture
-Could you provide a list of commands that required for the RHSCA - 600  Deploy, configure, and maintain systems, including software installation, update, and core services?
-ould you also provide a short description of what the commands do?
-View other drafts
+Firewall Configuration (if relevant):
+        firewall-cmd: To configure the firewall, including opening or closing ports.
 
-Sure, here is a list of commands that are required for the RHSCA - 600  Deploy, configure, and maintain systems, including software installation, update, and core services:
+DNS Configuration (if relevant):
+        Edit /etc/resolv.conf to set DNS server addresses (though this may not be recommended due to NetworkManager).
+        Use nmcli to configure DNS settings within NetworkManager.
+
+####################################################################################################
+600 - Deploy, configure, and maintain systems, including software installation, update, and core services:
+
 Command	Description
 yum			[ Installs, updates, and removes packages on Red Hat Enterprise Linux (RHEL) and CentOS systems. ] 
 dnf			[ Installs, updates, and removes packages on Fedora systems. ] 
