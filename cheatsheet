@@ -270,11 +270,11 @@ nmtui disconnect <connection-name>
     groupdel 								[ Removes a group from the system. Be cautious, as this also removes all group memberships. ]
 	userdel 	{options}	{username}
 	userdel		-r 		jerry				[ We run the option -r, --remove in ord to delete thge username account and the related files of the username ]
-    usermod 								[ You can use this command to change user attributes like the user's login shell, home directory, or group membership. ]
+    usermod 								[ You can use this command to change user attributes like the user's login shell, home directory, or group membership. | Each user most be in only one primary group but can be in multiple secondary groups]
 									[ examples of usermod | -a,--append | -G, --groups | -L, --lock | -U, --unlock | -c, --comment ]
 	usermod		{options}	{groupname}	{username}	[ To show how to add members to groups ]
 	usermod  	{options}	{username}			[ To modify user attributes. ]
-	usermod		-a -G		database	jerry		[ Adds jerry to the group databae ]
+	usermod		-a -G		database	jerry		[ Adds jerry to the group databae | -a -G adds the user to a secondary group | -g appends the user to a primary group ]
     passwd 								[ Description: Allows users (including the superuser) to change their passwords or can be used by the superuser to change another user's password. ]
     groupmod								[ It allows you to change group attributes, like the group name or group ID. ]
     gpasswd								[ It is used to administer the /etc/group and /etc/gshadow files, which store group information, including passwords. ]
@@ -289,7 +289,34 @@ nmtui disconnect <connection-name>
     ls -l /home								[ Gets list of users ]
     cat /etc/passwd							[ To list and show all users and details of users. 
     cat /etc/group							[ To show information about groups and details of groups ]
-	
+
+File Permissions, Ownership and Group Membership
+---- ------------ --------- --- ----- ----------
+					Group
+Type of file				permissions (read, write}	Number of links					Group				Date		Name of diretory
+	d	rwx			rw-			r-x	2			tom			linux	6			Apr 17 20:25 	Example
+		User/owner					other				Owner of Directory		Size of directory
+		Permissions (read, write, execute)		Permissions (read, execute)	
+
+Types of Linux File
+---- -- ------ ----
+d 	[ dirctory ]
+- 	[ text file ]
+c 	[ character device file ]
+b	[block device file ] 
+s 	[local socket file ]
+l 	[ symbolic link ]
+p	[ named pipe ]
+
+Permission Sets
+---------- ----
+Permission Sets		Character/sign	Permission Values
+read			r		4
+write			w		2
+execute			x		1
+No permission/Denied	-		0
+
+
 ####################################################################################################
 800 - Manage security, including basic firewall and SELinux configuration
 
