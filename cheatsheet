@@ -205,9 +205,7 @@ swapoff /dev/sdb1
 
     To partition the disk /dev/sda:
 
-fdisk /dev/sda
-
-    To create a file system of type ext4 on the partition /dev/sda1:
+fdisk /dev/sda [ To create a file system of type ext4 on the partition /dev/sda1: ]
 
 mkfs.ext4 /dev/sda1
 
@@ -221,6 +219,8 @@ umount /mnt
 
 ####################################################################################################
 500 - Create and configure file systems and file system attributes, such as permissions, encryption, access control lists, and network file systems
+
+
 
 ####################################################################################################
 600 - Deploy, configure, and maintain systems, including software installation, update, and core services
@@ -257,52 +257,20 @@ nmtui disconnect <connection-name>
 ####################################################################################################
 700 - Manage users and groups
 
-    useradd - create a new user
-    userdel - delete a user
-    groupadd - create a new group
-    groupdel - delete a group
-    usermod - modify a user
-    passwd - change a user's password
-
-    useradd: This command is used to add a new user to the system.
-        Description: It creates a new user account, and you can specify various options like the user's home directory and shell.
-
-    passwd: Change a user's password.
-        Description: Allows users (including the superuser) to change their passwords or can be used by the superuser to change another user's password.
-
-    usermod: Modify an existing user account.
-        Description: You can use this command to change user attributes like the user's login shell, home directory, or group membership.
-
-    userdel: Delete a user account.
-        Description: Removes a user account from the system, along with their home directory and mailbox, if specified.
-
-    groupadd: Create a new group.
-        Description: This command is used to create a new group on the system.
-
-    groupmod: Modify a group's attributes.
-        Description: It allows you to change group attributes, like the group name or group ID.
-
-    groupdel: Delete a group.
-        Description: Removes a group from the system. Be cautious, as this also removes all group memberships.
-
-    gpasswd: Manage group password files.
-        Description: It is used to administer the /etc/group and /etc/gshadow files, which store group information, including passwords.
-
-    newgrp: Start a new shell with a different group ID.
-        Description: This command allows a user to temporarily switch to a different group without logging out and logging back in.
-
-    id: Display user and group information for a user.
-        Description: Shows information about a user, including their user and group IDs and group memberships.
-
-    chage: Change user password expiration settings.
-        Description: Used to set password expiration and aging properties for a user.
-
-    su: Switch user or superuser.
-        Description: Allows you to switch to another user account, including the root superuser.
-
-    sudo: Execute a command as another user, typically the superuser.
-        Description: Enables authorized users to execute commands as another user, usually the root user.
-
+    useradd 			[ creates a new user account, and you can specify various options like the user's home directory and shell. ]
+    userdel  			[ Removes a user account from the system, along with their home directory and mailbox, if specified. ]
+    groupadd 			[ This command is used to create a new group on the system. ]
+    groupdel 			[ Removes a group from the system. Be cautious, as this also removes all group memberships. ]
+    usermod 			[ You can use this command to change user attributes like the user's login shell, home directory, or group membership. ]
+    passwd 			[ Description: Allows users (including the superuser) to change their passwords or can be used by the superuser to change another user's password. ]
+    groupmod			[ It allows you to change group attributes, like the group name or group ID. ]
+    gpasswd			[ It is used to administer the /etc/group and /etc/gshadow files, which store group information, including passwords. ]
+    newgrp 			[ This command allows a user to temporarily switch to a different group without logging out and logging back in. ]
+    id 				[ Shows information about a user, including their user and group IDs and group memberships.. ] 
+    chage:			[ Used to set password expiration and aging properties for a user. ]
+    su: 			[ Allows you to switch to another user account, including the root superuser. ]
+    sudo: 			[ Enables authorized users to execute commands as another user, usually the root user. ]
+     
 ####################################################################################################
 800 - Manage security, including basic firewall and SELinux configuration
 
