@@ -257,20 +257,39 @@ nmtui disconnect <connection-name>
 ####################################################################################################
 700 - Manage users and groups
 
-    useradd 			[ creates a new user account, and you can specify various options like the user's home directory and shell. ]
-    userdel  			[ Removes a user account from the system, along with their home directory and mailbox, if specified. ]
-    groupadd 			[ This command is used to create a new group on the system. ]
-    groupdel 			[ Removes a group from the system. Be cautious, as this also removes all group memberships. ]
-    usermod 			[ You can use this command to change user attributes like the user's login shell, home directory, or group membership. ]
-    passwd 			[ Description: Allows users (including the superuser) to change their passwords or can be used by the superuser to change another user's password. ]
-    groupmod			[ It allows you to change group attributes, like the group name or group ID. ]
-    gpasswd			[ It is used to administer the /etc/group and /etc/gshadow files, which store group information, including passwords. ]
-    newgrp 			[ This command allows a user to temporarily switch to a different group without logging out and logging back in. ]
-    id 				[ Shows information about a user, including their user and group IDs and group memberships.. ] 
-    chage:			[ Used to set password expiration and aging properties for a user. ]
-    su: 			[ Allows you to switch to another user account, including the root superuser. ]
-    sudo: 			[ Enables authorized users to execute commands as another user, usually the root user. ]
-     
+    useradd 								[ creates a new user account, and you can specify various options like the user's home directory and shell. ]
+	useradd		{options} {username} 	
+	useradd 	-u 2020 	-s /bin/bash 	-e 2020-01-01 	-c "Admin user name"
+	Creates user	Usergroup	Shell		Expire_date	Comment
+    userdel  								[ Removes a user account from the system, along with their home directory and mailbox, if specified. ]
+    groupadd 								[ This command is used to create a new group on the system. ]
+	groupadd 	{option}	{group}				[ The next example shows hot to create groups with option -g, --gid in order to assign numerical value/id to groups. In case we don not run option -g,--gid then the system is going to assign a random group ID ]
+	groupadd	-g 2020 	network
+	groupadd	--gid 1919	linux
+	groupadd			database
+    groupdel 								[ Removes a group from the system. Be cautious, as this also removes all group memberships. ]
+	userdel 	{options}	{username}
+	userdel		-r 		jerry				[ We run the option -r, --remove in ord to delete thge username account and the related files of the username ]
+    usermod 								[ You can use this command to change user attributes like the user's login shell, home directory, or group membership. ]
+									[ examples of usermod | -a,--append | -G, --groups | -L, --lock | -U, --unlock | -c, --comment ]
+	usermod		{options}	{groupname}	{username}	[ To show how to add members to groups ]
+	usermod  	{options}	{username}			[ To modify user attributes. ]
+	usermod		-a -G		database	jerry		[ Adds jerry to the group databae ]
+    passwd 								[ Description: Allows users (including the superuser) to change their passwords or can be used by the superuser to change another user's password. ]
+    groupmod								[ It allows you to change group attributes, like the group name or group ID. ]
+    gpasswd								[ It is used to administer the /etc/group and /etc/gshadow files, which store group information, including passwords. ]
+    newgrp 								[ This command allows a user to temporarily switch to a different group without logging out and logging back in. ]
+    id 									[ Shows information about a user, including their user and group IDs and group memberships.. ] 
+    chage:								[ Used to set password expiration and aging properties for a user. ]
+	chage		{options} 	{username}
+	chage		-l	 	mary				[ To display infomation about changing user password expiry information ]
+	chage		-d 0		{username}			[ To force users to change their password on the next log on ]
+    su: 								[ Allows you to switch to another user account, including the root superuser. ]
+    sudo: 								[ Enables authorized users to execute commands as another user, usually the root user. ]
+    ls -l /home								[ Gets list of users ]
+    cat /etc/passwd							[ To list and show all users and details of users. 
+    cat /etc/group							[ To show information about groups and details of groups ]
+	
 ####################################################################################################
 800 - Manage security, including basic firewall and SELinux configuration
 
