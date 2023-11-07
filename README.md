@@ -41,6 +41,221 @@ When System Successfully boot, it will ask for username and password. But you do
 4. System will boot on Single User mode.
 5. Use passwd command to change.
 6. Press ctrl+d
-7. 
+   
 </p>
 </details>
+
+## Question 3
+
+<details><summary>You are a System administrator. Using Log files very easy to monitor the system. Now there are 50 servers running as Mail, Web, Proxy, DNS services etc. You want to centralize the logs from all servers into on LOG Server. How will you configure the LOG Server to accept logs from remote host?</summary>
+<p>
+
+#### Explanation:
+
+By default, system accept the logs only generated from local host. To accept the Log from other host configure: vi /etc/sysconfig/syslog SYSLOGD_OPTIONS="-m 0 -r"
+
+Where -
+-m 0 disables 'MARK' messages.
+-r enables logging from remote machines
+-x disables DNS lookups on messages received with -r
+service syslog restart
+</p>
+</details>
+
+## Question 4
+
+<details><summary>Your System is configured in 192.168.0.0/24 Network and your nameserver is 192.168.0.254. Make successfully resolve to server1.example.com.     </summary>
+<p>
+
+#### Explanation:
+
+nameserver is specified in question,
+1. Vi /etc/resolv.conf
+nameserver 192.168.0.254
+2. host server1.example.com
+   
+</p>
+</details>
+
+## Question 5
+
+<details><summary>One Package named zsh is dump on ftp://server1.example.com under /pub/updates directory and your FTP server is 192.168.0.254. Install the package zsh.</summary>
+<p>
+
+#### Explanation:
+
+rpm -ivh ftp://server1/example.com/pub/updates/zsh-*
+or
+Login to ftp server : ftp ftp://server1.example.com using anonymous user.
+Change the directory: cd pub and cd updates
+Download the package: mget zsh-*
+
+Quit from the ftp prompt : bye -
+
+Install the package -
+rpm -ivh zsh-*
+Verify either package is installed or not : rpm -q zsh
+
+</p>
+</details>
+
+## Question 6
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+## Question 7
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+## Question 8
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+## Question 9
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+## Question 10
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:## Question 2
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+
+</p>
+</details>
+
+## Question 2
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+## Question 2
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+## Question 2
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+## Question 2
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+## Question 2
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+v
+## Question 2
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+## Question 2
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+## Question 2
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+## Question 2
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
+## Question 2
+
+<details><summary>     </summary>
+<p>
+
+#### Explanation:
+
+</p>
+</details>
+
