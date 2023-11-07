@@ -34,7 +34,11 @@ Verify by mounting on current Sessions also: mount /dev/hda? /data
 #### Explanation:
 Explanation: When you Boot the System, it starts on default Runlevel specified in /etc/inittab:
 Id:?:initdefault:
-When System Successfully boot, it will ask for username and password. But you don't know the root's password. To change the root password you need to boot the system into single user mode. You can pass the kernel arguments from the boot loader.
+When System Successfully boot, it will ask for username and password. 
+But you don't know the root's password. 
+To change the root password you need to boot the system into single user mode. 
+You can pass the kernel arguments from the boot loader.
+
 1. Restart the System.
 2. You will get the boot loader GRUB screen.
 3. Press a and type 1 or s for single mode ro root=LABEL=/ rhgb queit s
@@ -101,31 +105,65 @@ Verify either package is installed or not : rpm -q zsh
 
 ## Question 6
 
-<details><summary>     </summary>
+<details><summary>Some users home directory is shared from your system. Using showmount -e localhost command, the shared directory is not shown. Make access the shared users home directory.</summary>
 <p>
 
 #### Explanation:
 
+Verify the File whether Shared or not ? : cat /etc/exports
+Start the nfs service: service nfs start
+Start the portmap service: service portmap start
+Make automatically start the nfs service on next reboot: chkconfig nfs on
+Make automatically start the portmap service on next reboot: chkconfig portmap on
+Verify either sharing or not: showmount -e localhost
+Check that default firewall is running on system?
+If running flush the iptables using iptables -F and stop the iptables service.
 </p>
 </details>
 
 ## Question 7
 
-<details><summary>     </summary>
+<details><summary>Add a new logical partition having size 100MB and create the data which will be the mount point for the new partition.</summary>
 <p>
 
 #### Explanation:
 
+1. Use fdisk /dev/hda-> To create new partition.
+2. Type n ->For New partitions
+3. It will ask for Logical or Primary Partitions. Press l for logical.
+4. It will ask for the Starting Cylinder: Use the Default by pressing Enter
+
+Keys -
+5. Type the size: +100M you can specify either Last cylinder of size here.
+6. Press P to verify the partitions lists and remember the partitions name.
+7. Press w to write on partitions table.
+8. Either Reboot or use partprobe command.
+9. Use mkfs -t ext3 /dev/hda?
+
+OR -
+1. mke2fs -j /dev/hda? ->To create ext3 filesystem.
+2. vi /etc/fstab
+3. Write:
+/dev/hda? /data ext3 defaults 0 0
+4. Verify by mounting on current sessions also:
+mount /dev/hda? /data
 </p>
 </details>
 
 ## Question 8
 
-<details><summary>     </summary>
+<details><summary>You have a domain named www.rhce.com associated IP address is 192.100.0.2. Configure the Apache web server by implementing the SSL for encryption communication. </summary>
 <p>
 
 #### Explanation:
 
+vi /etc/httpd/conf.d/ssl.conf <VirtualHost 192.100.0.2> ServerName www.rhce.com DocumentRoot /var/www/rhce DirectoryIndex index.html index.htm
+ServerAdmin webmaster@rhce.com SSLEngine on SSLCertificateFile /etc/httpd/conf/ssl.crt/server.crt SSLCertificateKeyFile /etc/httpd/conf/ssl.key/server.key </
+VirtualHost>
+cd /etc/httpd/conf
+3 make testcert
+Create the directory and index page on specified path. (Index page can download from ftp://server1.example.com at exam time) service httpd start|restart chkconfig httpd on
+Apache can provide encrypted communications using SSL (Secure Socket Layer). To make use of encrypted communication, a client must request to https protocol, which is uses port 443. For HTTPS protocol required the certificate file and key file.
 </p>
 </details>
 
