@@ -3,9 +3,8 @@
 <details><summary>Create one partitions having size 100MB and mount it on data.</summary>
 <p>
 
-#### yes, even hidden code blocks!
+#### Explanation:
 
-Explanation:
 1. Use fdisk /dev/hda to create new partition.
 2. Type n For New partitions.
 3. It will ask for Logical or Primary Partitions. Press l for logical.
