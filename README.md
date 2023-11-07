@@ -1,7 +1,6 @@
 ## Question 1 
 
-<details>SIMULATION -
-Create one partitions having size 100MB and mount it on data.CLICK ME</summary>
+<details><summary>Create one partitions having size 100MB and mount it on data.</summary>
 <p>
 
 #### yes, even hidden code blocks!
