@@ -220,6 +220,27 @@ umount /mnt
 ####################################################################################################
 500 - Create and configure file systems and file system attributes, such as permissions, encryption, access control lists, and network file systems
 
+chedule tasks using cron.
+
+    Ensure Cron is installed
+        # rpm -qa | grep cron
+    Have a look at the man page
+        man 5 crontab
+    note the format for job timming
+
+        *    *    *    *    *  command to be executed
+        -    -    -    -    -
+        |    |    |    |    |
+        |    |    |    |    |
+        |    |    |    |    +----- day of week (0 - 6) (Sunday=0)
+        |    |    |    +---------- month (1 - 12)
+        |    |    +--------------- day of month (1 - 31)
+        |    +-------------------- hour (0 - 23)
+        +------------------------- min (0 - 59)
+
+    An example would be to run a job weekly at 3:30pm on Sunday
+        30 15 * * 0 /bin/echo "another job" >> echo.log
+
 
 
 ####################################################################################################
@@ -327,6 +348,18 @@ Permission Sets		>	Read	Write	Execute	No permission/Denied
 
     firewall-cmd - configure the firewall
     setenforce - set the SELinux enforcement mode
+
+Reset root pw
+----- ---- --
+    Interrupt boot process, select OS, press e
+    Append rd.break to "linux16" line, press Ctl-x
+    mount -o remount,rw /sysroot
+    chroot /sysroot
+    passwd
+    exit
+    touch /.autorelabel
+    exit
+
 
 ####################################################################################################
 900 - Perform basic container management
