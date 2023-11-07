@@ -158,8 +158,8 @@ mount /dev/hda? /data
 #### Explanation:
 
 vi /etc/httpd/conf.d/ssl.conf <VirtualHost 192.100.0.2> ServerName www.rhce.com DocumentRoot /var/www/rhce DirectoryIndex index.html index.htm
-ServerAdmin webmaster@rhce.com SSLEngine on SSLCertificateFile /etc/httpd/conf/ssl.crt/server.crt SSLCertificateKeyFile /etc/httpd/conf/ssl.key/server.key </
-VirtualHost>
+
+ServerAdmin webmaster@rhce.com SSLEngine on SSLCertificateFile /etc/httpd/conf/ssl.crt/server.crt SSLCertificateKeyFile /etc/httpd/conf/ssl.key/server.key </VirtualHost>
 cd /etc/httpd/conf
 3 make testcert
 Create the directory and index page on specified path. (Index page can download from ftp://server1.example.com at exam time) service httpd start|restart chkconfig httpd on
