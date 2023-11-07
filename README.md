@@ -22,5 +22,25 @@ vi /etc/fstab
 Write:
 /dev/hda? /data ext3 defaults 1 2
 Verify by mounting on current Sessions also: mount /dev/hda? /data
+
+</p>
+</details>
+
+## Question 2
+
+<details><summary>You are new System Administrator and from now you are going to handle the system and your main task is Network monitoring, Backup and Restore. But you don't know the root password. Change the root password to redhat and login in default Runlevel.</summary>
+<p>
+
+#### Explanation:
+Explanation: When you Boot the System, it starts on default Runlevel specified in /etc/inittab:
+Id:?:initdefault:
+When System Successfully boot, it will ask for username and password. But you don't know the root's password. To change the root password you need to boot the system into single user mode. You can pass the kernel arguments from the boot loader.
+1. Restart the System.
+2. You will get the boot loader GRUB screen.
+3. Press a and type 1 or s for single mode ro root=LABEL=/ rhgb queit s
+4. System will boot on Single User mode.
+5. Use passwd command to change.
+6. Press ctrl+d
+7. 
 </p>
 </details>
