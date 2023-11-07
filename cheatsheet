@@ -316,6 +316,11 @@ write			w		2
 execute			x		1
 No permission/Denied	-		0
 
+Permission Values	>	4	2	1	0
+				|	|	|	|
+Character/sign		>	r	w	x	-
+				|	|	|	|
+Permission Sets		>	Read	Write	Execute	No permission/Denied
 
 ####################################################################################################
 800 - Manage security, including basic firewall and SELinux configuration
